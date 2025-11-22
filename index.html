@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storyboard Creator - Transform Your Vision</title>
+    <meta name="description" content="Create stunning storyboards from your video scripts with AI-powered visualization">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="40" height="40" rx="12" fill="url(#logo-gradient)"/>
+                    <path d="M12 14L20 10L28 14V26L20 30L12 26V14Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 14L20 18L28 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M20 18V30" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs>
+                        <linearGradient id="logo-gradient" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#6366F1"/>
+                            <stop offset="1" stop-color="#8B5CF6"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span class="logo-text">StoryFrame</span>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="hero-section">
+                <h1 class="hero-title">Transform Your Script Into Visual Stories</h1>
+                <p class="hero-subtitle">Create professional storyboards in minutes with AI-powered visualization</p>
+            </div>
+
+            <form id="storyboard-form" class="form-card">
+                <div class="form-group">
+                    <label for="video-script" class="form-label">
+                        <span>Video Script</span>
+                        <span class="label-hint">Describe your vision in detail</span>
+                    </label>
+                    <textarea 
+                        id="video-script" 
+                        name="videoScript" 
+                        class="form-textarea" 
+                        placeholder="Enter your video script here... Describe scenes, actions, dialogue, and visual elements."
+                        rows="8"
+                        required
+                    ></textarea>
+                    <div class="char-counter">
+                        <span id="char-count">0</span> characters
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="video-duration" class="form-label">
+                            <span>Video Duration</span>
+                            <span class="label-hint">In minutes</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="number" 
+                                id="video-duration" 
+                                name="videoDuration" 
+                                class="form-input" 
+                                value="2"
+                                min="0.5"
+                                max="60"
+                                step="0.5"
+                                required
+                            >
+                            <span class="input-suffix">min</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="num-images" class="form-label">
+                            <span>Number of Images</span>
+                            <span class="label-hint">Storyboard frames</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="number" 
+                                id="num-images" 
+                                name="numImages" 
+                                class="form-input" 
+                                value="10"
+                                min="1"
+                                max="50"
+                                required
+                            >
+                            <span class="input-suffix">frames</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" id="submit-btn" class="submit-btn">
+                    <span class="btn-text">Generate Storyboard</span>
+                    <svg class="btn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </form>
+        </main>
+
+        <div class="background-decoration">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

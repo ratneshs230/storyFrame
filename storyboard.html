@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Storyboard - StoryFrame</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo-container">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="40" height="40" rx="12" fill="url(#logo-gradient)"/>
+                    <path d="M12 14L20 10L28 14V26L20 30L12 26V14Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M20 18V30" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 14L20 18L28 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs>
+                        <linearGradient id="logo-gradient" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#6366F1"/>
+                            <stop offset="1" stop-color="#8B5CF6"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span class="logo-text">StoryFrame</span>
+            </div>
+            <a href="index.html" class="back-button">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 10H4M4 10L9 5M4 10L9 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Back to Form
+            </a>
+        </header>
+
+        <div class="storyboard-header">
+            <h1 class="storyboard-title">Your Storyboard</h1>
+            <p class="storyboard-subtitle" id="storyboard-info">Your Storyboard is Ready</p>
+            <div id="user-prompt" class="user-prompt"></div>
+        </div>
+
+        <div id="loading-state" class="loading-state">
+            <div class="spinner"></div>
+            <p class="loading-text">Waiting for images to generate...</p>
+        </div>
+
+        <div id="storyboard-grid" class="storyboard-grid" style="display: none;">
+            <!-- Images will be dynamically inserted here -->
+        </div>
+
+        <!-- Fullscreen Modal -->
+        <div id="image-modal" class="image-modal">
+            <div class="modal-header">
+                <button id="close-modal" class="modal-close-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+                <div class="export-dropdown">
+                    <button id="export-btn" class="export-btn">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 3V13M10 13L6 9M10 13L14 9M3 17H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Export
+                    </button>
+                    <div id="export-menu" class="export-menu">
+                        <button data-format="png">PNG</button>
+                        <button data-format="jpg">JPG</button>
+                        <button data-format="webp">WebP</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-content">
+                <button id="prev-btn" class="nav-btn nav-prev">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div class="modal-image-container">
+                    <img id="modal-image" src="" alt="Fullscreen view">
+                </div>
+                <button id="next-btn" class="nav-btn nav-next">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div class="modal-chat">
+                    <div class="chat-header">
+                        <h3>Refine This Frame</h3>
+                    </div>
+                    <div id="chat-messages" class="chat-messages">
+                        <div class="chat-message system">
+                            Describe how you'd like to modify this frame...
+                        </div>
+                    </div>
+                    <div class="chat-input-container">
+                        <textarea id="chat-input" placeholder="e.g., Make the colors warmer, add more contrast..." rows="2"></textarea>
+                        <button id="chat-send" class="chat-send-btn">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 2L9 11M18 2L12 18L9 11M18 2L2 8L9 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="background-decoration">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+    </div>
+    <script src="storyboard.js"></script>
+</body>
+</html>
